@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quiz-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quiz-app
+  template:
+    metadata:
+      labels:
+        app: quiz-app
+    spec:
+      containers:
+        - name: quiz-app
+          image: 892139891520.dkr.ecr.eu-west-2.amazonaws.com/quiz-app:latest
+          ports:
+            - containerPort: 80
